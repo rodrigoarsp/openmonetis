@@ -21,8 +21,12 @@ const imageRemotePatterns: RemotePattern[] = [
 	},
 ];
 
+const isVercel = Boolean(
+	process.env.VERCEL || process.env.VERCEL_ENV || process.env.NOW_BUILDER,
+);
+
 const nextConfig: NextConfig = {
-	output: process.env.VERCEL ? undefined : "standalone",
+	output: isVercel ? undefined : "standalone",
 	cacheComponents: true,
 	reactCompiler: true,
 	images: {
