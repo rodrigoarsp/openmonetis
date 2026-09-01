@@ -19,7 +19,18 @@ function getDb() {
 		throw new Error("DATABASE_URL env variable is not set");
 	}
 
-	_pool = globalForDb.pool ?? new Pool({ connectionString: DATABASE_URL });
+	const isRemote =
+		DATABASE_URL.includes("supabase.co") ||
+		DATABASE_URL.includes("supabase.com") ||
+		DATABASE_URL.includes("sslmode=require") ||
+		process.env.NODE_ENV === "production";
+
+	_pool =
+		globalForDb.pool ??
+		new Pool({
+			connectionString: DATABASE_URL,
+			ssl: isRemote ? { rejectUnauthorized: false } : undefined,
+		});
 	_db = globalForDb.db ?? drizzle(_pool, { schema });
 
 	if (process.env.NODE_ENV !== "production") {

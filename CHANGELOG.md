@@ -5,6 +5,17 @@ Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
+## [2.7.14] - 2026-09-01
+
+Esta versão adiciona suporte nativo a bancos de dados PostgreSQL hospedados no Supabase com conexões SSL dinâmicas e torna os scripts de inicialização compatíveis com ambientes Windows.
+
+### Adicionado
+- Banco de dados: suporte a conexões SSL no driver de conexão (`src/shared/lib/db.ts`) para integração com Supabase e instâncias PostgreSQL remotas.
+- Configuração: inclusão de exemplos e instruções de conexão ao Supabase no `.env.example`.
+
+### Alterado
+- Desenvolvimento: script `postinstall` no `package.json` ajustado para execução cross-platform no Windows.
+
 ## [2.7.13] - 2026-08-09
 
 Esta versão atualiza a base técnica do OpenMonetis com as correções de segurança e desempenho do Next.js 16.3, acelera as verificações de tipos, melhora a recuperação de falhas nas áreas mais complexas do aplicativo e corrige a importação de extratos OFX que reutilizam identificadores bancários.
