@@ -22,7 +22,7 @@ const imageRemotePatterns: RemotePattern[] = [
 ];
 
 const nextConfig: NextConfig = {
-	output: "standalone",
+	output: process.env.VERCEL ? undefined : "standalone",
 	cacheComponents: true,
 	reactCompiler: true,
 	images: {
