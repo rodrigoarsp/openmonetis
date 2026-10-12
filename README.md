@@ -291,7 +291,7 @@ cp .env.production.example .env.production   # preencher DATABASE_URL, BETTER_AU
 docker compose -f docker-compose.prod.yml up -d --build
 ```
 
-No túnel, crie o aplicativo publicado com o hostname desejado e URL do serviço `http://<IP-do-servidor>:3210` (ou `http://localhost:3210` se o `cloudflared` roda no mesmo host). `BETTER_AUTH_URL` deve ser o domínio público com `https://`. Para atualizar: `git pull` e repetir o comando `up -d --build`.
+No túnel, crie o aplicativo publicado com o hostname desejado e URL do serviço `http://<IP-do-servidor>:3210` (ou `http://localhost:3210` se o `cloudflared` roda no mesmo host). `BETTER_AUTH_URL` deve ser o domínio público com `https://`. O APK Android (Capacitor) fica em `public/downloads/openmonetis.apk` e é oferecido na landing e no login; para regenerá-lo, rode `pnpm cap:sync` e `gradlew assembleDebug` em `android/` e copie o `app-debug.apk`. Para atualizar: `git pull` e repetir o comando `up -d --build`.
 
 ### Comandos úteis
 

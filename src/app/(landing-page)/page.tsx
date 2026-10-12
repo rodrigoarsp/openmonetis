@@ -65,12 +65,26 @@ export default async function Page() {
 						</p>
 
 						<div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto px-4 sm:px-0">
+							<a
+								href="/downloads/openmonetis.apk"
+								download="OpenMonetis.apk"
+								className="w-full sm:w-auto"
+							>
+								<Button size="lg" className="gap-2 w-full sm:w-auto">
+									<RiAndroidLine className="size-5" />
+									Baixar app Android
+								</Button>
+							</a>
 							<Link
 								href="https://github.com/felipegcoutinho/openmonetis"
 								target="_blank"
 								className="w-full sm:w-auto"
 							>
-								<Button size="lg" className="gap-2 w-full sm:w-auto">
+								<Button
+									size="lg"
+									variant="outline"
+									className="gap-2 w-full sm:w-auto"
+								>
 									<RiGithubFill className="size-5" />
 									Baixar no GitHub
 								</Button>

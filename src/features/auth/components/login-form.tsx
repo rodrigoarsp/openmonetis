@@ -271,6 +271,16 @@ export function LoginForm({
 						)}
 
 						<FieldDescription className="text-center text-sm text-muted-foreground">
+							<a
+								href="/downloads/openmonetis.apk"
+								download="OpenMonetis.apk"
+								className={authLinkClassName}
+							>
+								Baixar app para Android
+							</a>
+						</FieldDescription>
+
+						<FieldDescription className="text-center text-sm text-muted-foreground">
 							<a href="/" className={authLinkClassName}>
 								Voltar para a página inicial
 							</a>
