@@ -75,7 +75,10 @@ RUN mkdir -p /app/migrate && \
       'drizzle-orm':p.dependencies['drizzle-orm'],\
       'pg':p.dependencies['pg']\
     },\
-    devDependencies:{'drizzle-kit':p.devDependencies['drizzle-kit']}\
+    devDependencies:{\
+      'drizzle-kit':p.devDependencies['drizzle-kit'],\
+      'dotenv':p.devDependencies['dotenv']\
+    }\
   }));" && \
   cd /app/migrate && pnpm install --no-frozen-lockfile --ignore-scripts && \
   chown -R nextjs:nodejs /app/migrate
