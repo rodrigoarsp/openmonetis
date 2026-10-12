@@ -282,6 +282,17 @@ Suba apenas o app e aponte para o banco externo via `DATABASE_URL` no `.env`:
 docker compose up -d app
 ```
 
+### Produção em servidor próprio (HTTPS + domínio)
+
+`docker-compose.prod.yml` builda o código local e publica o app em HTTP na porta `APP_PORT` (padrão `3210`), pensado para ficar atrás de um [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/), que cuida do HTTPS e do DNS. O banco é externo (Supabase) via `DATABASE_URL`.
+
+```bash
+cp .env.production.example .env.production   # preencher DATABASE_URL, BETTER_AUTH_SECRET etc.
+docker compose -f docker-compose.prod.yml up -d --build
+```
+
+No túnel, crie o aplicativo publicado com o hostname desejado e URL do serviço `http://<IP-do-servidor>:3210` (ou `http://localhost:3210` se o `cloudflared` roda no mesmo host). `BETTER_AUTH_URL` deve ser o domínio público com `https://`. Para atualizar: `git pull` e repetir o comando `up -d --build`.
+
 ### Comandos úteis
 
 ```bash

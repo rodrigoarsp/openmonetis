@@ -16,6 +16,12 @@ dist
 .env*.local
 .env.development
 .env.production
+.env.production.example
+
+# Projeto mobile e arquivos de agentes (não fazem parte da imagem)
+android
+.agents
+skills-lock.json
 
 # Git
 .git

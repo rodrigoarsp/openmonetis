@@ -1,0 +1,33 @@
+name: openmonetis
+
+# Produção em servidor próprio atrás de um Cloudflare Tunnel.
+# O HTTPS e o DNS ficam na Cloudflare; o app só expõe HTTP na porta APP_PORT.
+# O banco é o Supabase externo, definido em DATABASE_URL no .env.production.
+#
+# Uso:
+#   cp .env.production.example .env.production   # e preencher os valores
+#   docker compose -f docker-compose.prod.yml up -d --build
+#
+# No túnel, aponte o hostname para http://<IP-do-servidor>:APP_PORT
+# (ou http://localhost:APP_PORT se o cloudflared roda no mesmo host).
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: openmonetis:local
+    container_name: openmonetis_app
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-3210}:3000"
+    env_file:
+      - .env.production
+    environment:
+      NODE_ENV: production
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
