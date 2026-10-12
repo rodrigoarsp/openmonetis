@@ -22,8 +22,7 @@ function getDb() {
 	const isRemote =
 		DATABASE_URL.includes("supabase.co") ||
 		DATABASE_URL.includes("supabase.com") ||
-		DATABASE_URL.includes("sslmode=require") ||
-		process.env.NODE_ENV === "production";
+		DATABASE_URL.includes("sslmode=require");
 
 	_pool =
 		globalForDb.pool ??
