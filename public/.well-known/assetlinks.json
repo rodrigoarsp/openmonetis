@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.openmonetis.app",
+      "sha256_cert_fingerprints": [
+        "44:51:43:38:79:48:DB:0D:27:67:62:3C:2C:A6:3E:DD:E4:E1:FB:E5:3F:D3:27:FB:2F:CD:4F:E2:CE:0B:9C:39"
+      ]
+    }
+  }
+]

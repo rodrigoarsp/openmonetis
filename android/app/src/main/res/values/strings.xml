@@ -3,5 +3,13 @@
     <string name="app_name">OpenMonetis</string>
     <string name="title_activity_main">OpenMonetis</string>
     <string name="package_name">com.openmonetis.app</string>
-    <string name="custom_url_scheme">com.openmonetis.app</string>
+    <string name="asset_statements">
+        [{
+            \"relation\": [\"delegate_permission/common.handle_all_urls\"],
+            \"target\": {
+                \"namespace\": \"web\",
+                \"site\": \"https://financas.rodrigors.online\"
+            }
+        }]
+    </string>
 </resources>
